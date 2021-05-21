@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pizzaria Dom Mortandello</string>
+    <string name="new_pizza">Nova Pizza</string>
+    <string name="menu">Cardapio</string>
+    <string name="save">Salvar</string>
+    <string name="register_pizza">Registre uma Nova Pizza</string>
+</resources>
