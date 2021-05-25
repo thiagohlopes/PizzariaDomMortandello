@@ -1,8 +1,10 @@
 package com.example.pizzariadommortandello.app;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -20,8 +22,6 @@ import java.util.ArrayList;
 
 public class ListPizza extends AppCompatActivity  {
 
-    ImageButton ib_back;
-    Intent it_changeActivity;
     private RecyclerView rvPizza;
     private PizzaAdapter pizzaAdapter;
     private ArrayList<Pizza> pizza;
@@ -30,7 +30,8 @@ public class ListPizza extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_pizza);
-        ib_back = findViewById(R.id.ib_back);
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.rvPizza = findViewById(R.id.rvPizza);
         pizza= DAOPizzas.getAllPizzas(this);
 
@@ -42,8 +43,16 @@ public class ListPizza extends AppCompatActivity  {
         Log.e(pizza.toString(),"Erro aqui");
     }
 
-    public void onClick_ib_back (View v) {
-        Intent it_changeActivity = new Intent(ListPizza.this, MainActivity.class);
-        startActivity(it_changeActivity);
-    };
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

@@ -15,6 +15,11 @@ public class Pizza {
         this.timeStamp = timeStamp;
         this.description = description;
     }
+    public Pizza(float price, String name, String description) {
+        this.price = price;
+        this.name = name;
+        this.description = description;
+    }
 
     public Pizza() {
 
